@@ -1,0 +1,58 @@
+[
+    {
+      "name": "${container_name}-${environment}",
+      "image": "${app_image}",
+      "cpu": ${fargate_cpu},
+      "memory": ${fargate_memory},
+      "networkMode": "awsvpc",
+      "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "/ecs/cpaor-data-processing-${environment}",
+            "awslogs-region": "${aws_region}",
+            "awslogs-stream-prefix": "ecs"
+          }
+      },
+      "entryPoint": [
+        "bash"
+      ],
+      "command": [
+        "-c",
+        "cron -f"
+      ],
+      "mountPoints": [
+        {
+            "containerPath": "/data",
+            "sourceVolume": "data-volume"
+        }
+      ],
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "${environment}"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "${aws_region}"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "OPENAI_API_KEY",
+          "valueFrom": "${openai_api_key_arn}"
+        },
+        {
+          "name": "ACLED_API_KEY",
+          "valueFrom": "${acled_api_key_arn}"
+        },
+        {
+          "name": "CPAOR_EMAIL",
+          "valueFrom": "${cpaor_email_arn}"
+        },
+        {
+          "name": "ACAPS_PASSWORD",
+          "valueFrom": "${acaps_password_arn}"
+        }
+      ]
+    }
+]
