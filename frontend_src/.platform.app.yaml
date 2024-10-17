@@ -16,7 +16,7 @@ disk: 1024
 
 mounts:
   "/data": "shared:files"
-  "/root/nltk_data": "shared:nltk_data"
+  "/nltk_data": "shared:nltk_data"
 
 web:
     commands:
