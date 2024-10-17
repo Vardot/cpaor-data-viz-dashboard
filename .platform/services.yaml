@@ -1,7 +1,7 @@
 files:
-  type: "disk:1.0"
-  size: 1024  # Adjust as needed
+    type: network-storage:1.0
+    disk: 2048
 
 nltk_data:
-  type: "disk:1.0"
-  size: 1024
+    type: network-storage:1.0
+    disk: 2048
