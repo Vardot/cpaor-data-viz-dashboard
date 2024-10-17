@@ -4,11 +4,15 @@ type: "python:3.10"
 dependencies:
     python:
         pip: true  # Ensure pip is installed
-    override: |
+
+hooks:
+    build: |
         pip install --upgrade --no-cache-dir pip poetry
         poetry config virtualenvs.create false
         poetry install --no-root
         pip uninstall -y poetry virtualenv-clone virtualenv
+
+disk: 1024
 
 mounts:
     "/data": "shared:data"
@@ -17,8 +21,3 @@ crons:
     process_data:
         spec: "0 * * * *"  # Runs every hour; adjust as needed
         cmd: "python /app/update_datasets.py"
-
-resources:
-    cpu: "1"
-    memory: "1024"
-    disk: "512"

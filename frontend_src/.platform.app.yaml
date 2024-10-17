@@ -2,21 +2,22 @@ name: frontend
 type: "python:3.10"
 
 dependencies:
-    override:
-        - pip install --upgrade --no-cache-dir pip poetry
-        - poetry config virtualenvs.create false
-        - poetry install --no-root
-        - pip uninstall -y poetry virtualenv-clone virtualenv
+    python:
+        pip: true  # Ensure pip is installed
 
-web:
-    commands:
-        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0 --server.port $PORT"
+hooks:
+    build: |
+        pip install --upgrade --no-cache-dir pip poetry
+        poetry config virtualenvs.create false
+        poetry install --no-root
+        pip uninstall -y poetry virtualenv-clone virtualenv
+
+disk: 1024
 
 mounts:
     "/data": "shared:data"
     "/root/nltk_data": "shared:nltk_data"
 
-resources:
-    cpu: "2"
-    memory: "2048"
-    disk: "1024"
+web:
+    commands:
+        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0 --server.port $PORT"
