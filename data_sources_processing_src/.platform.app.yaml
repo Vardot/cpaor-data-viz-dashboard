@@ -1,9 +1,9 @@
 name: data-processor
 type: "python:3.10"
 
-dependencies:
-    python3:
-        pip3: true  # Ensure pip is installed
+#dependencies:
+#    python3:
+#        pip3: true  # Ensure pip is installed
 
 hooks:
     build: |
