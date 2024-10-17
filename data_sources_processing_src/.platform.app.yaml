@@ -1,18 +1,18 @@
 name: data-processor
 type: "python:3.10"
 
-# Build dependencies in the 'dependencies' section
 dependencies:
-    override:
-        - pip install --upgrade --no-cache-dir pip poetry
-        - poetry config virtualenvs.create false
-        - poetry install --no-root
-        - pip uninstall -y poetry virtualenv-clone virtualenv
+    python:
+        pip: true  # Ensure pip is installed
+    override: |
+        pip install --upgrade --no-cache-dir pip poetry
+        poetry config virtualenvs.create false
+        poetry install --no-root
+        pip uninstall -y poetry virtualenv-clone virtualenv
 
 mounts:
     "/data": "shared:data"
 
-# Define the cron job to periodically run the data processing script
 crons:
     process_data:
         spec: "0 * * * *"  # Runs every hour; adjust as needed
