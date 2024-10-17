@@ -8,6 +8,7 @@ type: "python:3.10"
 hooks:
     build: |
         pip3 install --upgrade --no-cache-dir pip poetry
+        poetry config installer.max-workers 4
         poetry config virtualenvs.create false
         poetry install --no-root
         pip3 uninstall -y poetry virtualenv-clone virtualenv
@@ -20,4 +21,4 @@ mounts:
 
 web:
     commands:
-        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0 --server.port $PORT"
+        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0 --server.port 443"
