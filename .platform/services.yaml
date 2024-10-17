@@ -1,7 +1,7 @@
 files:
-  type: "disk"
+  type: "disk:1.0"
   size: 1024  # Adjust as needed
 
 nltk_data:
-  type: "disk"
+  type: "disk:1.0"
   size: 1024
