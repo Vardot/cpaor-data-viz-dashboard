@@ -1,0 +1,7 @@
+files:
+  type: "disk"
+  size: "1GB"  # Adjust as needed
+
+nltk_data:
+  type: "disk"
+  size: "1GB"

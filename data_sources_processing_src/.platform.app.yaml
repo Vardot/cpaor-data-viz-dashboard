@@ -15,7 +15,7 @@ hooks:
 disk: 1024
 
 mounts:
-    "/data": "shared:data"
+  "/data": "shared:files"
 
 crons:
     process_data:

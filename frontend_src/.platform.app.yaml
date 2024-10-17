@@ -15,8 +15,8 @@ hooks:
 disk: 1024
 
 mounts:
-    "/data": "shared:data"
-    "/root/nltk_data": "shared:nltk_data"
+  "/data": "shared:files"
+  "/root/nltk_data": "shared:nltk_data"
 
 web:
     commands:
