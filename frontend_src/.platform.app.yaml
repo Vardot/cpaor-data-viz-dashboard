@@ -21,4 +21,4 @@ mounts:
 
 web:
     commands:
-        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0 --server.port 443"
+        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0"
