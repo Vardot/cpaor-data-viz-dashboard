@@ -1,9 +1,9 @@
 name: data-processor
 type: "python:3.10"
 
-build:
-    flavor: composer
-    commands:
+# Build dependencies in the 'dependencies' section
+dependencies:
+    override:
         - pip install --upgrade --no-cache-dir pip poetry
         - poetry config virtualenvs.create false
         - poetry install --no-root
@@ -12,7 +12,13 @@ build:
 mounts:
     "/data": "shared:data"
 
+# Define the cron job to periodically run the data processing script
 crons:
     process_data:
-        spec: "0 * * * *"  # Adjust the schedule as needed
+        spec: "0 * * * *"  # Runs every hour; adjust as needed
         cmd: "python /app/update_datasets.py"
+
+resources:
+    cpu: "1"
+    memory: "1024"
+    disk: "512"
