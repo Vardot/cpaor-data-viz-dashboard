@@ -22,4 +22,4 @@ mounts:
 
 web:
     commands:
-        start: streamlit run app.py --server.port 443
+        start: streamlit run app.py --server.port $PORT
