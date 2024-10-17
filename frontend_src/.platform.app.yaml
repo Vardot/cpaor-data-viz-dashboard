@@ -21,4 +21,4 @@ mounts:
 
 web:
     commands:
-        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0"
+        start: streamlit run app.py --server.address 0.0.0.0
