@@ -1,0 +1,22 @@
+name: frontend
+type: "python:3.10"
+
+build:
+    flavor: composer
+    commands:
+        - pip install --upgrade --no-cache-dir pip poetry
+        - poetry config virtualenvs.create false
+        - poetry install --no-root
+        - pip uninstall -y poetry virtualenv-clone virtualenv
+
+web:
+    commands:
+        start: bash -c "streamlit run /app/app.py --server.address 0.0.0.0 --server.port $PORT"
+
+mounts:
+    "/data": "shared:data"
+    "/root/nltk_data": "shared:nltk_data"
+
+resources:
+    cpu: "2"
+    memory: "2048"

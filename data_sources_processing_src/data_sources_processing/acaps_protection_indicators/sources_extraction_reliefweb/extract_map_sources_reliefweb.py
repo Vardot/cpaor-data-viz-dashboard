@@ -105,6 +105,9 @@ def get_reliefweb_organisations(source_metadata_path: os.PathLike):
     8. Save the 'all_sources' dictionary as a JSON file at 'source_metadata_path'.
     """
 
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(source_metadata_path), exist_ok=True)
+    
     response = requests.post(sources_url, data=json.dumps({"limit": 6}))
     # Assuming 'response' is the Response object
     content = bs(response.text, "html.parser")
