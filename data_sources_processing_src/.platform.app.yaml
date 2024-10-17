@@ -3,14 +3,14 @@ type: "python:3.10"
 
 dependencies:
     python:
-        pip: true  # Ensure pip is installed
+        pip3: true  # Ensure pip is installed
 
 hooks:
     build: |
-        pip install --upgrade --no-cache-dir pip poetry
+        pip3 install --upgrade --no-cache-dir pip poetry
         poetry config virtualenvs.create false
         poetry install --no-root
-        pip uninstall -y poetry virtualenv-clone virtualenv
+        pip3 uninstall -y poetry virtualenv-clone virtualenv
 
 disk: 1024
 
