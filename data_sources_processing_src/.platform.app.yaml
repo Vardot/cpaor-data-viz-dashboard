@@ -16,7 +16,3 @@ crons:
     process_data:
         spec: "0 * * * *"  # Adjust the schedule as needed
         cmd: "python /app/update_datasets.py"
-
-resources:
-    cpu: "1"
-    memory: "1024"

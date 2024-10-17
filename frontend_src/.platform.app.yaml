@@ -16,7 +16,3 @@ web:
 mounts:
     "/data": "shared:data"
     "/root/nltk_data": "shared:nltk_data"
-
-resources:
-    cpu: "2"
-    memory: "2048"
