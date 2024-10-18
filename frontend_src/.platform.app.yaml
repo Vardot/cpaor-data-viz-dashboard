@@ -17,11 +17,11 @@ hooks:
 disk: 1024
 
 mounts:
-    '/data':
+    '../data':
         source: service
         service: files
         source_path: ""
-    '/nltk-data':
+    '../nltk-data':
         source: service
         service: nltk-data
         source_path: ""
