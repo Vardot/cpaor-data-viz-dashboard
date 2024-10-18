@@ -1,7 +1,7 @@
 files:
-    type: network-storage:1.0
+    type: network-storage:2.0
     disk: 1024
 
 nltk_data:
-    type: network-storage:1.0
+    type: network-storage:2.0
     disk: 1024
