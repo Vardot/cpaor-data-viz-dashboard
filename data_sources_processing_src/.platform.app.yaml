@@ -20,6 +20,10 @@ mounts:
         source: service
         service: files
         source_path: ""
+    '/nltk-data':
+        source: service
+        service: nltk-data
+        source_path: ""
 
 crons:
     process_data:
