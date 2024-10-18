@@ -17,9 +17,14 @@ hooks:
 disk: 1024
 
 mounts:
-  "/data": "shared:files"
-#  "/nltk_data": "shared:nltk_data"
-
+    '/data':
+        source: service
+        service: files
+        source_path: ""
+    '/nltk_data':
+        source: service
+        service: nltk_data
+        source_path: ""
 web:
     commands:
         start: |

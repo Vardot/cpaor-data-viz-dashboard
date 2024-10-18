@@ -16,7 +16,10 @@ hooks:
 disk: 1024
 
 mounts:
-  "/data": "shared:files"
+    '/data':
+        source: service
+        service: files
+        source_path: ""
 
 crons:
     process_data:
