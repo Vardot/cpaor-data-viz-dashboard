@@ -7,11 +7,11 @@ type: "python:3.10"
 
 hooks:
     build: |
-        pip3 install --upgrade --no-cache-dir pip poetry
-        poetry config virtualenvs.create false
-        poetry install --no-root
-        pip3 uninstall -y poetry virtualenv-clone virtualenv
-#         pip3 install -r requirements.txt
+        pip3 install -r requirements.txt
+#        pip3 install --upgrade --no-cache-dir pip poetry
+#        poetry config virtualenvs.create false
+#        poetry install --no-root
+#        pip3 uninstall -y poetry virtualenv-clone virtualenv
 
 disk: 1024
 
