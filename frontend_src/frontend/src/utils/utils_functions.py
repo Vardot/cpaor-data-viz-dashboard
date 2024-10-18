@@ -11,7 +11,7 @@ def _load_countries_list():
     Function to load the list of countries from the report_countries.csv file
     """
     return pd.read_csv(
-        os.path.join(st.session_state["base_data_folder"], "report_countries.csv"),
+        os.path.join("./data", "report_countries.csv"),
         header=None,
         names=["country"],
     ).country.tolist()
