@@ -20,5 +20,5 @@ mounts:
 
 crons:
     process_data:
-        spec: "0 * * * *"  # Runs every hour; adjust as needed
+        spec: "0 1 * * *"  # Runs every day at 1 am
         cmd: "python /app/update_datasets.py"
