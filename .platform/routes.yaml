@@ -3,6 +3,3 @@ https://{default}/:
     upstream: frontend:http
     cache:
         enabled: false
-    headers:
-        x-forwarded-proto: "https"
-    websockets: true
